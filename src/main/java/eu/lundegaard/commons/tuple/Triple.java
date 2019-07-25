@@ -14,7 +14,6 @@
  */
 package eu.lundegaard.commons.tuple;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -30,9 +29,7 @@ import java.util.Objects;
  * @author Ales Rybak (ales.rybak@lundegaard.eu)
  */
 @SuppressWarnings("WeakerAccess")
-public class Triple<T, U, V> implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Triple<T, U, V> {
 
     private T first;
     private U second;

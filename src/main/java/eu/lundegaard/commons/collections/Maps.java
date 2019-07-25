@@ -23,7 +23,11 @@ import java.util.Map;
  *
  * @author Ales Rybak(ales.rybak@lundegaard.eu)
  */
-public class Maps {
+public final class Maps {
+
+    private Maps() {
+        // empty constructor for utility class
+    }
 
     public static <K, V> MapBuilder<K, V> of(K firstKey, V firstValue) {
         return new MapBuilder<>(new HashMap<K, V>()).put(firstKey, firstValue);

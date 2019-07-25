@@ -99,7 +99,13 @@ public final class DateUtil {
             return null;
         }
 
-        return toLocalDateTime(input, ZoneId.systemDefault()).toLocalDate();
+        LocalDateTime localDateTime = toLocalDateTime(input, ZoneId.systemDefault());
+
+        if (localDateTime == null) {
+            return null;
+        }
+
+        return localDateTime.toLocalDate();
     }
 
     public static LocalDate toLocalDate(Date input, ZoneId zone) {

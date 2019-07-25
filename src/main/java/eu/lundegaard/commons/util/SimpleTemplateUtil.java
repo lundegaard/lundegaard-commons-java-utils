@@ -47,8 +47,9 @@ public final class SimpleTemplateUtil {
         }
 
         String output = template;
-        for (String key : attributes.keySet()) {
-            output = output.replaceAll(KEY_PREFIX + key + KEY_SUFFIX, attributes.get(key));
+        for (Map.Entry<String, String> entry : attributes.entrySet()) {
+            String key = entry.getKey();
+            output = output.replaceAll(KEY_PREFIX + key + KEY_SUFFIX, entry.getValue());
         }
 
         return output;

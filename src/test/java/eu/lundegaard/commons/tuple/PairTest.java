@@ -15,7 +15,7 @@
 package eu.lundegaard.commons.tuple;
 
 import org.junit.*;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Ales Rybak (ales.rybak@lundegaard.eu)
@@ -36,8 +36,8 @@ public class PairTest {
         Pair<String, String> alpha = new Pair<>(FIRST, SECOND);
         Pair<String, String> beta = new Pair<>(FIRST, SECOND);
 
-        assertTrue(alpha.equals(beta));
-        assertTrue(beta.equals(alpha));
+        assertThat(alpha).isEqualTo(beta);
+        assertThat(beta).isEqualTo(alpha);
     }
 
     @Test
@@ -45,16 +45,26 @@ public class PairTest {
         Pair<String, String> alpha = new Pair<>(FIRST, SECOND);
         Pair<String, String> beta = new Pair<>(SECOND, FIRST);
 
-        assertFalse(alpha.equals(beta));
-        assertFalse(beta.equals(alpha));
+        assertThat(alpha).isNotEqualTo(beta);
+        assertThat(beta).isNotEqualTo(alpha);
     }
 
     @Test
     public void gettersWork() {
         Pair<String, String> alpha = new Pair<>(FIRST, SECOND);
 
-        assertEquals(FIRST, alpha.getFirst());
-        assertEquals(SECOND, alpha.getSecond());
+        assertThat(alpha.getFirst()).isEqualTo(FIRST);
+        assertThat(alpha.getSecond()).isEqualTo(SECOND);
+    }
+
+    @Test
+    public void withWorks() {
+        Pair<String, String> alpha = new Pair<>(FIRST, FIRST);
+
+        alpha = alpha.withFirst(SECOND).withSecond(SECOND);
+
+        assertThat(alpha.getFirst()).isEqualTo(SECOND);
+        assertThat(alpha.getSecond()).isEqualTo(SECOND);
     }
 
 }

@@ -28,6 +28,10 @@ public final class GzipUtil {
 
     private static final int BUFFER_SIZE = 4096;
 
+    private GzipUtil() {
+        // empty constructor for utility class
+    }
+
     /**
      * Gunzip data.
      *
@@ -38,7 +42,7 @@ public final class GzipUtil {
      */
     public static byte[] gunzip(byte[] input) throws IOException {
         if (input == null) {
-            return null;
+            return new byte[] {};
         }
         if (input.length == 0) {
             return new byte[] {};
@@ -56,7 +60,6 @@ public final class GzipUtil {
             }
 
             return output.toByteArray();
-
         }
     }
 
@@ -70,7 +73,7 @@ public final class GzipUtil {
      */
     public static byte[] gzip(byte[] input) throws IOException {
         if (input == null) {
-            return null;
+            return new byte[] {};
         }
         if (input.length == 0) {
             return new byte[] {};
@@ -80,9 +83,8 @@ public final class GzipUtil {
                 GZIPOutputStream gzipOutput = new GZIPOutputStream(bytesOutput)) {
 
             gzipOutput.write(input);
-            gzipOutput.close();
+            gzipOutput.finish();
             return bytesOutput.toByteArray();
-
         }
     }
 }

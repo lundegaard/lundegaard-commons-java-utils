@@ -15,6 +15,7 @@
 package eu.lundegaard.commons.tuple;
 
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 /**
@@ -37,8 +38,8 @@ public class TripleTest {
         Triple<String, String, String> alpha = new Triple<>(FIRST, SECOND, THIRD);
         Triple<String, String, String> beta = new Triple<>(FIRST, SECOND, THIRD);
 
-        assertTrue(alpha.equals(beta));
-        assertTrue(beta.equals(alpha));
+        assertThat(alpha).isEqualTo(beta);
+        assertThat(beta).isEqualTo(alpha);
     }
 
     @Test
@@ -46,17 +47,28 @@ public class TripleTest {
         Triple<String, String, String> alpha = new Triple<>(FIRST, SECOND, THIRD);
         Triple<String, String, String> beta = new Triple<>(SECOND, THIRD, FIRST);
 
-        assertFalse(alpha.equals(beta));
-        assertFalse(beta.equals(alpha));
+        assertThat(alpha).isNotEqualTo(beta);
+        assertThat(beta).isNotEqualTo(alpha);
     }
 
     @Test
     public void gettersWork() {
         Triple<String, String, String> alpha = new Triple<>(FIRST, SECOND, THIRD);
 
-        assertEquals(FIRST, alpha.getFirst());
-        assertEquals(SECOND, alpha.getSecond());
-        assertEquals(THIRD, alpha.getThird());
+        assertThat(alpha.getFirst()).isEqualTo(FIRST);
+        assertThat(alpha.getSecond()).isEqualTo(SECOND);
+        assertThat(alpha.getThird()).isEqualTo(THIRD);
+    }
+
+    @Test
+    public void withWorks() {
+        Triple<String, String, String> alpha = new Triple<>(FIRST, FIRST, FIRST);
+
+        alpha = alpha.withFirst(SECOND).withSecond(SECOND).withThird(SECOND);
+
+        assertThat(alpha.getFirst()).isEqualTo(SECOND);
+        assertThat(alpha.getSecond()).isEqualTo(SECOND);
+        assertThat(alpha.getThird()).isEqualTo(SECOND);
     }
 
 }

@@ -15,7 +15,6 @@
 package eu.lundegaard.commons.exception;
 
 import java.io.Serializable;
-import eu.lundegaard.commons.exception.ApplicationException;
 
 /**
  * This interface for ApplicationException error codes.

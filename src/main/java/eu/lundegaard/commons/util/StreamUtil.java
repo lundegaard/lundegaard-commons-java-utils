@@ -22,6 +22,10 @@ import java.util.stream.Stream;
  */
 public final class StreamUtil {
 
+    private StreamUtil() {
+        // private constructor for utility class
+    }
+
     /**
      * Returns {@code Optional} object as stream.
      *

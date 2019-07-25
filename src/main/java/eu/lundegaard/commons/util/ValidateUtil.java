@@ -52,7 +52,7 @@ public final class ValidateUtil {
     }
 
     public static void validateNotEmpty(Collection collection, String message) {
-        if (collection == null || collection.size() == 0) {
+        if (collection == null || collection.isEmpty()) {
             throw new IllegalArgumentException(message);
         }
     }

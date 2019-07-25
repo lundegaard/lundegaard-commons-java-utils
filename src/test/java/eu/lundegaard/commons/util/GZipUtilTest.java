@@ -14,11 +14,10 @@
  */
 package eu.lundegaard.commons.util;
 
-import java.util.Arrays;
-import org.junit.*;
+import org.junit.Test;
 import static eu.lundegaard.commons.util.GzipUtil.gunzip;
 import static eu.lundegaard.commons.util.GzipUtil.gzip;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Ales Rybak (ales.rybak@lundegaard.eu)
@@ -42,11 +41,61 @@ public class GZipUtilTest {
 
         // when
         byte[] gzipped = gzip(original);
+        System.out.println(gzipped.length);
         byte[] gunzipped = gunzip(gzipped);
 
         // then
-        assertTrue("Compressed data are smaller than original.", gzipped.length < original.length);
-        assertTrue("Decompressed data are same as original.", Arrays.equals(original, gunzipped));
+        assertThat(gzipped.length).isLessThan(original.length);
+        assertThat(gunzipped).isEqualTo(original);
+    }
+
+    @Test
+    public void testGzip_null() throws Exception {
+        // given
+        byte[] emptyByteArray = new byte[0];
+
+        // when
+        byte[] result = gzip(null);
+
+        // expect
+        assertThat(result).isEqualTo(emptyByteArray);
+    }
+
+    @Test
+    public void testGzip_empty() throws Exception {
+        // given
+        byte[] emptyByteArray = new byte[0];
+
+        // when
+        byte[] result = gzip(emptyByteArray);
+
+        // expect
+        assertThat(result).isEqualTo(emptyByteArray);
+    }
+
+    @Test
+    public void testGunzip_null() throws Exception {
+        // given
+        byte[] emptyByteArray = new byte[0];
+
+        // when
+        byte[] result = gunzip(null);
+
+        // expect
+        assertThat(result).isEqualTo(emptyByteArray);
+    }
+
+    @Test
+    public void testGunzip_empty() throws Exception {
+        // given
+        byte[] emptyByteArray = new byte[0];
+
+        // when
+        byte[] result = gunzip(emptyByteArray);
+
+        // expect
+        assertThat(result).isEqualTo(emptyByteArray);
     }
 
 }
+

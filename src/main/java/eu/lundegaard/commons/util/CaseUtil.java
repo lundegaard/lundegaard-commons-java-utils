@@ -65,8 +65,6 @@ public final class CaseUtil {
      * @return array of parsed words with original case
      */
     public static String[] fromUpperCamelCase(String input) {
-        validateNotNull(input);
-
         return fromCamelCase(input);
     }
 
@@ -77,8 +75,6 @@ public final class CaseUtil {
      * @return array of parsed words with original case
      */
     public static String[] fromLowerCamelCase(String input) {
-        validateNotNull(input);
-
         return fromCamelCase(input);
     }
 
@@ -102,9 +98,8 @@ public final class CaseUtil {
      * @return array of parsed words with original case
      */
     public static String[] fromUpperCase(String input) {
-        validateNotNull(input);
-
-        return input.split(" ");
+        // parsing is the same as from lower case
+        return fromLowerCase(input);
     }
 
     /**
@@ -127,9 +122,8 @@ public final class CaseUtil {
      * @return array of parsed words with original case
      */
     public static String[] fromConstantCase(String input) {
-        validateNotNull(input);
-
-        return input.split("_");
+        // parsing is the same as for the snake case
+        return fromSnakeCase(input);
     }
 
     /**

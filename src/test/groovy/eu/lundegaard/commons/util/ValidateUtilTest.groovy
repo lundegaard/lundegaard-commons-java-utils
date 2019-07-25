@@ -55,6 +55,7 @@ class ValidateUtilTest extends Specification {
         new ArrayList()  | _
         []               | _
         new HashMap()    | _
+        [].toArray()     | _
     }
 
     def "Test validateNotEmpty with null"() {

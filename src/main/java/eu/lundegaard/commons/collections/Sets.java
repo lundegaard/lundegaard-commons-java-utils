@@ -16,13 +16,18 @@ package eu.lundegaard.commons.collections;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Utility class for easy initialization of sets.
  *
  * @author Ales Rybak(ales.rybak@lundegaard.eu)
  */
-public class Sets {
+public final class Sets {
+
+    private Sets() {
+        // empty constructor for utility class
+    }
 
     /**
      * Use this method to easy and quick creation of HashSet.
@@ -32,8 +37,8 @@ public class Sets {
      * @return New {@link HashSet} with given elements
      */
     @SafeVarargs
-    public static <E> HashSet<E> of(E... elements) {
-        HashSet<E> set = new HashSet<E>(elements.length);
+    public static <E> Set<E> of(E... elements) {
+        Set<E> set = new HashSet<>(elements.length);
         Collections.addAll(set, elements);
         return set;
     }

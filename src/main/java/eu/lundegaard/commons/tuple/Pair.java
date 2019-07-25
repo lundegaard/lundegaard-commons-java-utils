@@ -14,7 +14,6 @@
  */
 package eu.lundegaard.commons.tuple;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -31,12 +30,10 @@ import java.util.Objects;
  * @author Ales Rybak (ales.rybak@lundegaard.eu)
  */
 @SuppressWarnings("WeakerAccess")
-public class Pair<T, U> implements Serializable {
+public class Pair<T, U> {
 
-    private static final long serialVersionUID = 1L;
-
-    private T first;
-    private U second;
+    private final T first;
+    private final U second;
 
     public Pair(T first, U second) {
         if (first == null || second == null) {

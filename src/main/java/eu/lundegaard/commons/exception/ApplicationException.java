@@ -31,18 +31,21 @@ public class ApplicationException extends RuntimeException {
      * investigation of the problem, formal recognition of the errors or for
      * displaying more specific info to the user.
      */
-    protected ApplicationExceptionCode code = null;
+    protected final ApplicationExceptionCode code;
 
     public ApplicationException(String message) {
         super(message);
+        this.code = null;
     }
 
     public ApplicationException(Throwable cause) {
         super(cause);
+        this.code = null;
     }
 
     public ApplicationException(String message, Throwable cause) {
         super(message, cause);
+        this.code = null;
     }
 
     public ApplicationException(String message, ApplicationExceptionCode code) {
@@ -57,10 +60,6 @@ public class ApplicationException extends RuntimeException {
 
     public ApplicationExceptionCode getCode() {
         return code;
-    }
-
-    public void setCode(ApplicationExceptionCode code) {
-        this.code = code;
     }
 
 }

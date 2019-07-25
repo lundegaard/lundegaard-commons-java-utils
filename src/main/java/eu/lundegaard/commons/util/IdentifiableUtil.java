@@ -41,7 +41,7 @@ public final class IdentifiableUtil {
      */
     public static <I extends Serializable> List<I> getIds(List<? extends Identifiable<I>> itemsList) {
         return itemsList.stream()
-                .map(item -> item.getId())
+                .map(Identifiable::getId)
                 .collect(Collectors.toList());
     }
 
