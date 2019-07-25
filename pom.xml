@@ -15,23 +15,17 @@
     <description>Lundegaard Java Commons Utils Library</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
-        </dependency>
-
         <!-- Testing -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.15</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -51,18 +45,22 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M2</version>
+                <configuration>
+                    <rules>
+                        <requireReleaseDeps>
+                            <failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
+                        </requireReleaseDeps>
+                    </rules>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <excludes>
                         <exclude>**/TestUtils.java</exclude>
                     </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-site-plugin</artifactId>
-                <configuration>
-                    <skip>false</skip>
-                    <skipDeploy>false</skipDeploy>
                 </configuration>
             </plugin>
             <plugin>
@@ -73,15 +71,18 @@
                 <artifactId>gmavenplus-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>bnd-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                    <skipDeploy>false</skipDeploy>
                 </configuration>
             </plugin>
         </plugins>
