@@ -1,5 +1,7 @@
 Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
 
+Import-Package: !eu.lundegaard.commons.iface
+
 Export-Package: \
     eu.lundegaard.commons.collections, \
     eu.lundegaard.commons.dto, \
