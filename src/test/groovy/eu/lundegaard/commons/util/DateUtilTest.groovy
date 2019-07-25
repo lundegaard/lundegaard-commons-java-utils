@@ -6,9 +6,7 @@
  */
 package eu.lundegaard.commons.util
 
-import spock.lang.Ignore
 import spock.lang.Specification
-import spock.lang.Unroll
 
 import java.sql.Timestamp
 import java.time.*
@@ -173,11 +171,15 @@ class DateUtilTest extends Specification {
         endOfDay == LocalDate.now().atTime(23, 59, 59, 999_999_999)
     }
 
-    def "Get end of given day"() {
+    def "Get end of given day"(LocalDate input, LocalDateTime result) {
         expect:
-        endOfDay(null) == null
-        endOfDay(LocalDate.now()) == LocalDate.now().atTime(23, 59, 59, 999_999_999)
-        endOfDay(LocalDate.parse("1982-09-20")) == LocalDateTime.parse("1982-09-20T23:59:59.999999999")
+        result == endOfDay(input)
+
+        where:
+        input                              | result
+        LocalDate.now()                    | LocalDate.now().atTime(23, 59, 59, 999_999_999)
+        LocalDate.parse("1982-09-20") | LocalDateTime.parse("1982-09-20T23:59:59.999999999")
+        null                               | null
     }
 
     def "Get beginning of current week"() {

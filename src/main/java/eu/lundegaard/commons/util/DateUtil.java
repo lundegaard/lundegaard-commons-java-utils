@@ -6,9 +6,11 @@
  */
 package eu.lundegaard.commons.util;
 
-import org.threeten.extra.Interval;
 import java.sql.Timestamp;
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.Date;
@@ -228,15 +230,5 @@ public final class DateUtil {
         }
         return date.withDayOfYear(1).plusYears(1).minusDays(1);
     }
-
-    public static Interval getIntervalOf(LocalDateTime startInclusive, LocalDateTime endExclusive) {
-        return Interval.of(toInstant(startInclusive), toInstant(endExclusive));
-    }
-
-    public static Interval getIntervalOf(LocalDateTime startInclusive, LocalDateTime endExclusive, ZoneId zone) {
-        return Interval.of(toInstant(startInclusive, zone), toInstant(endExclusive, zone));
-
-    }
-
 
 }
