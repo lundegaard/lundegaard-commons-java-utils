@@ -1,1 +1,9 @@
-Export-Package: eu.lundegaard.commons.collections, eu.lundegaard.commons.dto, eu.lundegaard.commons.exception, eu.lundegaard.commons.iface, eu.lundegaard.commons.tuple, eu.lundegaard.commons.util
+Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+
+Export-Package: \
+    eu.lundegaard.commons.collections, \
+    eu.lundegaard.commons.dto, \
+    eu.lundegaard.commons.exception, \
+    eu.lundegaard.commons.iface, \
+    eu.lundegaard.commons.tuple, \
+    eu.lundegaard.commons.util
