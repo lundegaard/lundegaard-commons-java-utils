@@ -4,7 +4,7 @@
     <parent>
         <groupId>eu.lundegaard.commons.java</groupId>
         <artifactId>parent-pom</artifactId>
-        <version>3.0.0</version>
+        <version>3.2.1</version>
     </parent>
 
     <artifactId>utils</artifactId>
@@ -13,6 +13,37 @@
 
     <name>Lundegaard Java Commons :: Utils Library</name>
     <description>Lundegaard Java Commons Utils Library</description>
+    <url>https://github.com/lundegaard/lundegaard-commons-java-utils</url>
+
+    <organization>
+        <name>Lundegaard a.s.</name>
+        <url>https://lundegaard.eu</url>
+    </organization>
+
+    <issueManagement>
+        <system>Jira</system>
+        <url>https://jira.lnd.bz</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>https://jenkins.lnd.bz</url>
+    </ciManagement>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License 3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <inceptionYear>2016</inceptionYear>
+
+    <scm>
+        <connection>scm:git:git://github.com/lundegaard/lundegaard-commons-java-utils.git</connection>
+        <developerConnection>scm:git:ssh://github.com:lundegaard/lundegaard-commons-java-utils.git</developerConnection>
+        <url>https://github.com/lundegaard/lundegaard-commons-java-utils/tree/master</url>
+    </scm>
 
     <dependencies>
         <!-- Testing -->
